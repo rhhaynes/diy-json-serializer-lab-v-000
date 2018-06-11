@@ -8,7 +8,7 @@
 $(function(){
   $(".js-next-product").on("click", function(){
     const id = $(this).attr("id");
-    $.get("/products/"+id+"/data", function(data){
+    $.getJSON("/products/"+id+"/data", function(data){
       debugger;
       $("h3#p-name").text(data["name"]);
       $("p#p-description").text(data["description"]);

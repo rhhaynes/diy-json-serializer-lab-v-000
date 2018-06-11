@@ -20,7 +20,6 @@ class ProductsController < ApplicationController
   end
   
   def data
-    binding.pry
     render :json => ProductSerializer.serialize(@product)
   end
 

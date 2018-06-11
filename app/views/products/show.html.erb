@@ -2,14 +2,19 @@
 <p id="p-description"><%= @product.description %></p>
 <p id="p-price"><%= @product.price %></p>
 <p id="p-inventory"><%= @product.inventory %></p>
-<a id="p-id" href="#">Next Product</a>
-
-<script type="" >
-</script>
+<a id="<%= @product.id %>" class="js-next-product" href="#">Next Product</a>
 
 <script type="text/javascript" charset="utf-8">
-$(function() {
-  $(".js-more").on("click", function() {
+$(function(){
+  $(".js-next-product").on("click", function(){
+    const id = $(this).attr("id");
+    $.get("/products/"+id+"/data", function(data){
+      
+    })
+  })
+})
+</script>
+
     var id = $(this).data("id");
     $.get("/products/" + id + "/description", function(description) {
       $.get("/products/" + id + "/inventory", function(inventory) {

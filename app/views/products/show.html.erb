@@ -10,6 +10,7 @@ $(function(){
     e.preventDefault();
     const id = $(this).attr("id");
     $.getJSON("/products/"+id+"/data", function(data){
+      debugger;
       $("h3#p-name").text(data["name"]);
       $("p#p-description").text(data["description"]);
       $("p#p-price").text(data["price"]);

@@ -7,7 +7,7 @@
 <script type="text/javascript" charset="utf-8">
 $(function(){
   $(".js-next-product").on("click", function(e){
-    e.
+    e.preventDefault();
     const id = $(this).attr("id");
     $.getJSON("/products/"+id+"/data", function(data){
       $("h3#p-name").text(data["name"]);

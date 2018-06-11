@@ -1,0 +1,21 @@
+<h3 id="p-name"><%= @product.name %></h3>
+<p id="p-description"><%= @product.description %></p>
+<p id="p-price"><%= @product.price %></p>
+<p id="p-inventory"><%= @product.inventory %></p>
+<a id="<%= @product.id %>" class="js-next-product" href="#">Next Product</a>
+
+<script type="text/javascript" charset="utf-8">
+$(function(){
+  $(".js-next-product").on("click", function(e){
+    e.preventDefault();
+    const id = parseInt($(this).attr("id"), 10) + 1;
+    $.getJSON("/products/"+id+"/data", function(data){
+      $("h3#p-name").text(data["name"]);
+      $("p#p-description").text(data["description"]);
+      $("p#p-price").text(data["price"]);
+      $("p#p-inventory").text(data["inventory"]);
+      $("a.js-next-product").attr("id", data["id"]);
+    });
+  });
+});
+</script>
